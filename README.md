@@ -2,7 +2,7 @@
 
 A sophisticated, feature-rich weather application with real-time data, stunning animations, and a beautiful responsive design. Built with vanilla HTML, CSS, and JavaScript.
 
-![Weather App Demo](https://img.shields.io/badge/Status-Production%20Ready-brightgreen) ![Version](https://img.shields.io/badge/Version-2.0-blue) ![License](https://img.shields.io/badge/License-MIT-green)
+![Weather App Demo](https://img.shields.io/badge/Status-Production%20Ready-brightgreen) ![Version](https://img.shields.io/badge/Version-2.0-blue) 
 
 ## ✨ Key Features
 
