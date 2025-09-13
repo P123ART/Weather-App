@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Weather App</title>
+
+    <!-- Weather App Favicon -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='skyGrad' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234A90E2;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%236BB6FF;stop-opacity:1' /%3E%3C/linearGradient%3E%3ClinearGradient id='sunGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23FFD700;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23FFA500;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='50' fill='url(%23skyGrad)'/%3E%3Ccircle cx='35' cy='35' r='15' fill='url(%23sunGrad)'/%3E%3Cpath d='M35 15 L35 10 M50 35 L55 35 M35 55 L35 60 M20 35 L15 35 M45 25 L48 22 M45 45 L48 48 M25 25 L22 22 M25 45 L22 48' stroke='%23FFD700' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M60 55 Q70 45 75 55 Q85 45 90 55 Q80 65 75 60 Q70 65 60 55' fill='%23FFFFFF' opacity='0.9'/%3E%3Cpath d='M15 70 Q25 60 30 70 Q40 60 45 70 Q35 80 30 75 Q25 80 15 70' fill='%23FFFFFF' opacity='0.8'/%3E%3C/svg%3E"
+    />
+    <link
+      rel="shortcut icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='skyGrad' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234A90E2;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%236BB6FF;stop-opacity:1' /%3E%3C/linearGradient%3E%3ClinearGradient id='sunGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23FFD700;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23FFA500;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='50' fill='url(%23skyGrad)'/%3E%3Ccircle cx='35' cy='35' r='15' fill='url(%23sunGrad)'/%3E%3Cpath d='M35 15 L35 10 M50 35 L55 35 M35 55 L35 60 M20 35 L15 35 M45 25 L48 22 M45 45 L48 48 M25 25 L22 22 M25 45 L22 48' stroke='%23FFD700' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M60 55 Q70 45 75 55 Q85 45 90 55 Q80 65 75 60 Q70 65 60 55' fill='%23FFFFFF' opacity='0.9'/%3E%3Cpath d='M15 70 Q25 60 30 70 Q40 60 45 70 Q35 80 30 75 Q25 80 15 70' fill='%23FFFFFF' opacity='0.8'/%3E%3C/svg%3E"
+    />
+
+    <!-- Apple Touch Icon for iOS -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='skyGrad' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234A90E2;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%236BB6FF;stop-opacity:1' /%3E%3C/linearGradient%3E%3ClinearGradient id='sunGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23FFD700;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23FFA500;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='50' fill='url(%23skyGrad)'/%3E%3Ccircle cx='35' cy='35' r='15' fill='url(%23sunGrad)'/%3E%3Cpath d='M35 15 L35 10 M50 35 L55 35 M35 55 L35 60 M20 35 L15 35 M45 25 L48 22 M45 45 L48 48 M25 25 L22 22 M25 45 L22 48' stroke='%23FFD700' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M60 55 Q70 45 75 55 Q85 45 90 55 Q80 65 75 60 Q70 65 60 55' fill='%23FFFFFF' opacity='0.9'/%3E%3Cpath d='M15 70 Q25 60 30 70 Q40 60 45 70 Q35 80 30 75 Q25 80 15 70' fill='%23FFFFFF' opacity='0.8'/%3E%3C/svg%3E"
+    />
+
+    <!-- Additional Meta Tags for Better App Experience -->
+    <meta name="theme-color" content="#4A90E2" />
+    <meta name="msapplication-TileColor" content="#4A90E2" />
+    <meta name="application-name" content="Live Weather App" />
+    <meta name="apple-mobile-web-app-title" content="Weather App" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+          <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+        <h1><i class="fas fa-cloud-sun"></i> Live Weather</h1>
+        <p>Get real-time weather information for any location worldwide</p>
+      </header>
+
+      <div class="search-container">
+        <div class="search-box">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Enter city name (e.g., New York, London, Tokyo)"
+            id="cityInput"
+          />
+          <button class="search-btn" onclick="searchWeather()">
+            <i class="fas fa-search"></i>
+          </button>
+          <button class="location-btn" onclick="getCurrentLocation()">
+            <i class="fas fa-map-marker-alt"></i>
+          </button>
+          <button
+            class="search-btn"
+            onclick="toggleCORSProxy()"
+            title="Toggle CORS Proxy (if having connection issues)"
+            id="corsToggle"
+          >
+            <i class="fas fa-shield-alt"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="weather-card" id="weatherCard">
+        <div class="loading" id="loading" style="display: none">
+          <div class="spinner"></div>
+          <p>Loading weather data...</p>
+        </div>
+
+        <div id="weatherContent" style="display: none">
+          <div class="current-weather">
+            <div class="weather-main">
+              <div class="weather-icon" id="weatherIcon">
+                <i class="fas fa-sun"></i>
+              </div>
+              <div class="weather-info">
+                <h2 id="temperature">--°C</h2>
+                <p id="description">--</p>
+                <p id="location">--</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="weather-details">
+            <div class="detail-item">
+              <i class="fas fa-eye"></i>
+              <div class="detail-value" id="visibility">--</div>
+              <div class="detail-label">Visibility</div>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-tint"></i>
+              <div class="detail-value" id="humidity">--%</div>
+              <div class="detail-label">Humidity</div>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-wind"></i>
+              <div class="detail-value" id="windSpeed">-- km/h</div>
+              <div class="detail-label">Wind Speed</div>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-thermometer-half"></i>
+              <div class="detail-value" id="feelsLike">--°C</div>
+              <div class="detail-label">Feels Like</div>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-compress-arrows-alt"></i>
+              <div class="detail-value" id="pressure">-- hPa</div>
+              <div class="detail-label">Pressure</div>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-cloud"></i>
+              <div class="detail-value" id="cloudiness">--%</div>
+              <div class="detail-label">Cloudiness</div>
+            </div>
+          </div>
+
+          <div class="forecast-container">
+            <h3 class="forecast-title">5-Day Forecast</h3>
+            <div class="forecast-grid" id="forecastGrid">
+              <!-- Forecast items will be dynamically generated -->
+            </div>
+          </div>
+        </div>
+
+        <div class="error" id="errorMessage" style="display: none">
+          <i class="fas fa-exclamation-triangle"></i>
+          <p id="errorText">Something went wrong!</p>
+        </div>
+      </div>
+
+      <!-- API Configuration section hidden since API key is configured -->
+      <div class="api-info" style="display: none">
+        <h3><i class="fas fa-info-circle"></i> API Configuration</h3>
+        <p>This app is configured and ready to use!</p>
+      </div>
+    </div>
+
+    <!-- Weather Detail Modal -->
+    <div class="modal-overlay" id="weatherModal" style="display: none">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h2 id="modalDate">Weather Details</h2>
+          <button class="modal-close" onclick="closeWeatherModal()">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <div class="modal-content">
+          <div class="modal-weather-main">
+            <div class="modal-icon" id="modalIcon">
+              <i class="fas fa-sun"></i>
+            </div>
+            <div class="modal-temp-info">
+              <h3 id="modalTemp">--°C</h3>
+              <p id="modalCondition">--</p>
+              <div class="temp-range">
+                <span class="temp-max" id="modalTempMax">--°</span>
+                <span class="temp-divider">/</span>
+                <span class="temp-min" id="modalTempMin">--°</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-details">
+            <div class="modal-detail-section">
+              <h4><i class="fas fa-thermometer-half"></i> Temperature</h4>
+              <div class="detail-row">
+                <span>Maximum:</span>
+                <span id="modalMaxTemp">--°C</span>
+              </div>
+              <div class="detail-row">
+                <span>Minimum:</span>
+                <span id="modalMinTemp">--°C</span>
+              </div>
+              <div class="detail-row">
+                <span>Average:</span>
+                <span id="modalAvgTemp">--°C</span>
+              </div>
+            </div>
+
+            <div class="modal-detail-section">
+              <h4><i class="fas fa-cloud-rain"></i> Precipitation</h4>
+              <div class="detail-row">
+                <span>Chance of Rain:</span>
+                <span id="modalRainChance">--%</span>
+              </div>
+              <div class="detail-row">
+                <span>Total Precipitation:</span>
+                <span id="modalPrecipitation">-- mm</span>
+              </div>
+              <div class="detail-row">
+                <span>Snow:</span>
+                <span id="modalSnow">-- cm</span>
+              </div>
+            </div>
+
+            <div class="modal-detail-section">
+              <h4><i class="fas fa-wind"></i> Wind & Air</h4>
+              <div class="detail-row">
+                <span>Wind Speed:</span>
+                <span id="modalWindSpeed">-- km/h</span>
+              </div>
+              <div class="detail-row">
+                <span>Wind Direction:</span>
+                <span id="modalWindDir">--</span>
+              </div>
+              <div class="detail-row">
+                <span>Humidity:</span>
+                <span id="modalHumidity">--%</span>
+              </div>
+            </div>
+
+            <div class="modal-detail-section">
+              <h4><i class="fas fa-sun"></i> Sun & Moon</h4>
+              <div class="detail-row">
+                <span>Sunrise:</span>
+                <span id="modalSunrise">--:--</span>
+              </div>
+              <div class="detail-row">
+                <span>Sunset:</span>
+                <span id="modalSunset">--:--</span>
+              </div>
+              <div class="detail-row">
+                <span>Moonrise:</span>
+                <span id="modalMoonrise">--:--</span>
+              </div>
+              <div class="detail-row">
+                <span>Moonset:</span>
+                <span id="modalMoonset">--:--</span>
+              </div>
+              <div class="detail-row">
+                <span>Moon Phase:</span>
+                <span id="modalMoonPhase">--</span>
+              </div>
+            </div>
+
+            <div class="modal-detail-section">
+              <h4><i class="fas fa-eye"></i> Visibility & Comfort</h4>
+              <div class="detail-row">
+                <span>Visibility:</span>
+                <span id="modalVisibility">-- km</span>
+              </div>
+              <div class="detail-row">
+                <span>UV Index:</span>
+                <span id="modalUV">--</span>
+              </div>
+              <div class="detail-row">
+                <span>Air Quality:</span>
+                <span id="modalAirQuality">--</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
