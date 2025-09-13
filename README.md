@@ -223,11 +223,7 @@ open index.html
 - ✅ Basic weather functionality
 - ✅ Theme toggle system
 - ✅ CORS proxy solution
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
+  
 ## 🤝 Contributing
 
 Feel free to fork this project and submit pull requests for improvements!
@@ -255,7 +251,7 @@ localStorage.setItem("theme", "dark");
 
 ## 🚀 **Ready to Use!**
 
-Simply open `index.html` in your web browser and enjoy your professional weather application!
+Simply hit this URL https://live-weather-application-2.netlify.app/
 
 **Perfect for**: Personal use, learning project, portfolio showcase, weather monitoring, or as a foundation for more advanced weather applications.
 
